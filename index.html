@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luxury Finish Auto Care</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --primary: #cfb267; /* Prestige dark gold */
+      --primary-dark: #cfb267;
+      --accent: #cfb267; /* Prestige dark gold */
+      --nav-bg: #0A0A0A;
+      --footer-bg: #0A0A0A;
+      --text-main: #f5f5f5;
+      --text-light: #fff;
+      --section-bg: #121212;
+      --shadow: 0 4px 24px rgba(0,0,0,0.25);
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: var(--section-bg);
+      color: var(--text-main);
+      min-height: 100vh;
+      scroll-behavior: auto !important;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: var(--nav-bg);
+      color: var(--text-main);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 32px;
+      height: 72px;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      position: relative;
+    }
+    .nav-logo span {
+      font-size: 2rem;
+      font-weight: 400;
+      letter-spacing: 1.5px;
+      color: var(--primary);
+      text-shadow: 0 1px 2px rgba(0,0,0,0.04);
+      font-family: 'Montserrat', Arial, sans-serif;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 32px;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li a {
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 1.25rem;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      padding: 8px 0;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-bottom 0.2s;
+    }
+    nav ul li a:hover, nav ul li a.active {
+      color: var(--primary);
+      border-bottom: 2px solid var(--primary);
+    }
+    .hero {
+      background: url('mercades.jpg') center center/cover no-repeat;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 550px;
+      padding: 48px 0 32px 0;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(120deg, rgba(0,0,0,0.7) 60%, rgba(176,141,54,0.15) 100%);
+      z-index: 1;
+      backdrop-filter: blur(var(--scroll-blur, 0px));
+      transition: backdrop-filter 0.2s ease-out;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 40%);
+      background-repeat: repeat;
+      background-size: 5px 5px;
+      opacity: 0;
+      animation: subtleShine 15s infinite;
+      pointer-events: none;
+      z-index: 2;
+    }
+    @keyframes subtleShine {
+      0%, 100% { opacity: 0; transform: translateY(0); }
+      50% { opacity: 0.5; transform: translateY(-20px); }
+    }
+    .hero-content {
+      max-width: 1100px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      position: relative;
+      z-index: 3;
+    }
+    .hero-text {
+      flex: 1 1 320px;
+      min-width: 260px;
+      text-align: left;
+      color: var(--text-light);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      margin: 0;
+      max-width: 600px;
+      transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+      padding: 0 4vw;
+    }
+    .hero-title {
+      font-size: 3rem;
+      font-weight: 400;
+      color: var(--primary);
+      margin: 0 0 16px 0;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      font-family: 'Montserrat', Arial, sans-serif;
+    }
+    .hero-tagline {
+      font-size: 1.5rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 24px;
+      font-weight: 400;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+      font-family: 'Montserrat', Arial, sans-serif;
+    }
+    .cta {
+      display: inline-block;
+      margin: 18px 0 0 0;
+      padding: 22px 54px;
+      background: #000;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      border-radius: 40px;
+      font-size: 1.35rem;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 4px 24px rgba(176,141,54,0.18), 0 0 16px 2px rgba(176,141,54,0.18);
+      transition: background 0.2s, color 0.2s, transform 0.2s, border-color 0.2s;
+      cursor: pointer;
+      letter-spacing: 0.5px;
+      font-family: 'Montserrat', Arial, sans-serif;
+      outline: none;
+      animation: buttonPulse 2s ease-in-out infinite;
+    }
+    .cta:hover {
+      background: var(--primary);
+      color: #000;
+      transform: scale(1.06);
+      box-shadow: 0 6px 32px rgba(176,141,54,0.28), 0 0 24px 4px rgba(176,141,54,0.22);
+      border: 2px solid var(--primary);
+    }
+    @keyframes buttonPulse {
+      0%, 100% {
+        box-shadow: 0 4px 24px rgba(176,141,54,0.18), 0 0 16px 2px rgba(176,141,54,0.18);
+      }
+      50% {
+        box-shadow: 0 10px 50px rgba(207, 178, 103, 0.4), 0 0 40px 8px rgba(207, 178, 103, 0.3);
+      }
+    }
+    main {
+      flex: 1;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 16px 0 16px;
+      box-sizing: border-box;
+    }
+    section {
+      margin-bottom: 48px;
+      background: var(--section-bg);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      padding: 32px 28px;
+      transition: box-shadow 0.2s;
+      border-left: 0;
+    }
+    section:hover {
+      box-shadow: none;
+    }
+    .services-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .services-header h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .services-header p {
+      font-size: 1.1rem;
+      color: #a0a0a0;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .section-title {
+      font-size: 1.5rem;
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 18px;
+      letter-spacing: 1px;
+    }
+    .services-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    @media (min-width: 640px) {
+      .services-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      .services-list {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+      }
+    }
+
+    .service-card {
+      background: black;
+      border-radius: 12px;
+      padding: 32px 24px;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid #2a2b2f;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0.2;
+      z-index: 1;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .service-card:hover::before {
+      opacity: 0.3;
+      transform: scale(1.05);
+    }
+
+    .service-card > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .service-card.interior::before { background-image: url('interior.jpg'); }
+    .service-card.exterior::before { background-image: url('whitecar.jpeg'); }
+    .service-card.engine::before { background-image: url('engine.webp'); }
+    .service-card.headlights::before { background-image: url('headlight.jpg'); }
+    .service-card.waxing::before { background-image: url('waxing.avif'); }
+    .service-card.coating::before { background-image: url('ceramic.jpg'); }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    .service-icon-wrapper {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #2a2b2f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px auto;
+    }
+    .service-icon-wrapper i {
+      color: var(--primary);
+      font-size: 1.8rem;
+    }
+    .service-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .service-desc {
+      font-size: 0.98rem;
+      color: #a0a0a0;
+      line-height: 1.6;
+    }
+    .about-text {
+      font-size: 1.08rem;
+      color: #f5f5f5;
+      line-height: 1.7;
+      margin-bottom: 0;
+    }
+    footer {
+      background: var(--footer-bg);
+      color: var(--primary-dark);
+      text-align: center;
+      padding: 28px 0 16px 0;
+      margin-top: auto;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+    }
+    .footer-links {
+      margin-bottom: 10px;
+    }
+    .footer-links a {
+      color: var(--primary);
+      text-decoration: none;
+      margin: 0 14px;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover {
+      color: #fff;
+    }
+    @media (max-width: 900px) {
+      .navbar, .hero-content, main {
+        max-width: 98vw;
+        padding-left: 8px;
+        padding-right: 8px;
+      }
+      .hero-content {
+        gap: 18px;
+      }
+    }
+    @media (max-width: 700px) {
+      .navbar {
+        flex-direction: column;
+        height: auto;
+        gap: 8px;
+        padding: 8px 8px;
+      }
+      .hero-content {
+        flex-direction: column;
+        gap: 18px;
+        text-align: center;
+      }
+      .hero-text {
+        text-align: center;
+      }
+      section {
+        padding: 18px 6px;
+      }
+    }
+    @media (max-width: 500px) {
+      .hero-img {
+        width: 98vw;
+        max-width: 98vw;
+      }
+      .navbar {
+        padding: 0 2vw;
+      }
+    }
+    .hero-container {
+      position: relative;
+      z-index: 3;
+    }
+    .scroll-down-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      width: 110px;
+      height: 44px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #cfb267 60%, #fffbe6 100%);
+      box-shadow: 0 4px 24px 0 rgba(207,178,103,0.25), 0 1.5px 8px 0 rgba(0,0,0,0.18);
+      color: #181818;
+      font-size: 2rem;
+      animation: bounce 2s infinite;
+      transition: box-shadow 0.2s, transform 0.2s;
+      position: relative;
+      z-index: 10;
+      text-decoration: none;
+    }
+    .scroll-down-arrow i {
+      filter: drop-shadow(0 0 6px #cfb26788);
+      transition: filter 0.2s;
+    }
+    .scroll-down-arrow:hover {
+      box-shadow: 0 8px 32px 0 #cfb267, 0 2px 12px 0 rgba(0,0,0,0.22);
+      transform: scale(1.12);
+      background: linear-gradient(135deg, #ffe9a7 60%, #cfb267 100%);
+    }
+    .scroll-down-arrow:hover i {
+      filter: drop-shadow(0 0 16px #cfb267cc);
+    }
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-18px);
+      }
+      60% {
+        transform: translateY(-8px);
+      }
+    }
+    /* Team Section */
+    .team-list {
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      margin: 32px 0 0 0;
+      flex-wrap: wrap;
+    }
+    .team-member {
+      background: #18191c;
+      border-radius: 14px;
+      padding: 28px 24px 20px 24px;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.13);
+      width: 220px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .team-member:hover {
+      transform: translateY(-6px) scale(1.04);
+      box-shadow: 0 8px 32px rgba(207,178,103,0.13);
+    }
+    .team-photo {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      border: 3px solid var(--primary);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
+    .team-name {
+      color: #fff;
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .team-role {
+      color: #cfb267;
+      font-size: 0.98rem;
+      font-weight: 500;
+      margin-bottom: 0;
+    }
+    /* Map Section */
+    .map-container {
+      margin: 32px auto 0 auto;
+      max-width: 600px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.13);
+    }
+    /* Contact Section */
+    .contact-flex {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      margin-top: 24px;
+    }
+    .contact-form-card, .contact-info-card {
+      background: #18191c;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.13);
+      padding: 32px 28px 24px 28px;
+      flex: 1 1 340px;
+      min-width: 320px;
+      max-width: 420px;
+    }
+    .contact-form-title, .contact-info-title {
+      color: #fff;
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+      letter-spacing: 1px;
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .form-row {
+      display: flex;
+      gap: 12px;
+    }
+    .form-row input {
+      flex: 1;
+    }
+    .contact-form input, .contact-form select, .contact-form textarea {
+      background: #232428;
+      color: #fff;
+      border: 1.5px solid #2a2b2f;
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 1rem;
+      font-family: inherit;
+      margin-bottom: 0;
+      outline: none;
+      transition: border 0.2s;
+    }
+    .contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus {
+      border: 1.5px solid var(--primary);
+    }
+    .contact-form textarea {
+      min-height: 60px;
+      resize: vertical;
+    }
+    .contact-info-list {
+      margin-bottom: 28px;
+    }
+    .contact-info-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #fff;
+      font-size: 1.08rem;
+      margin-bottom: 16px;
+    }
+    .contact-info-item i {
+      color: var(--primary);
+      font-size: 1.3rem;
+      min-width: 22px;
+      text-align: center;
+    }
+    .contact-info-item a {
+      color: #fff;
+      text-decoration: underline;
+      transition: color 0.2s;
+    }
+    .contact-info-item a:hover {
+      color: var(--primary);
+    }
+    .why-book-box {
+      background: #2a2b2f;
+      border-radius: 12px;
+      padding: 22px 18px 16px 18px;
+      margin-top: 18px;
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(207,178,103,0.08);
+    }
+    .why-book-box h4 {
+      color: var(--primary);
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    .why-book-box ul {
+      list-style: disc inside;
+      color: #fff;
+      font-size: 1rem;
+      margin: 0;
+      padding-left: 18px;
+    }
+    .why-book-box li {
+      margin-bottom: 7px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="nav-logo">
+        <span>Luxury Finish Autocare</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#team">Our Team</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div class="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title">Not Just Restored Reborn in Luxury</h1>
+        <p class="hero-tagline">The Finest Mobile Detailing Services</p>
+        <a href="#contact" class="cta">Book Your Appointment</a>
+      </div>
+    </div>
+  </div>
+
+  <a href="#services" class="scroll-down-arrow">
+    <i class="fas fa-chevron-down"></i>
+  </a>
+
+  <main>
+    <section id="services">
+      <div class="services-header">
+        <h2>What We Offer</h2>
+        <p>Professional mobile detailing services delivered to your location</p>
+      </div>
+      <ul class="services-list">
+        <li class="service-card interior">
+          <div class="service-icon-wrapper">
+            <i class="fas fa-car-side"></i>
+          </div>
+          <h3 class="service-title">Interior</h3>
+          <p class="service-desc">Thorough cleaning and conditioning of all internal surfaces.</p>
+        </li>
+        <li class="service-card exterior">
+          <div class="service-icon-wrapper">
+            <i class="fas fa-soap"></i>
+          </div>
+          <h3 class="service-title">Exterior</h3>
+          <p class="service-desc">Premium hand wash for a spotless, shining exterior.</p>
+        </li>
+        <li class="service-card engine">
+          <div class="service-icon-wrapper">
+            <i class="fas fa-cogs"></i>
+          </div>
+          <h3 class="service-title">Engine Bay</h3>
+          <p class="service-desc">Safe and detailed cleaning of your engine compartment.</p>
+        </li>
+        <li class="service-card headlights">
+          <div class="service-icon-wrapper">
+            <i class="far fa-lightbulb"></i>
+          </div>
+          <h3 class="service-title">Headlight Restoration</h3>
+          <p class="service-desc">Restoring clarity and brightness to foggy headlights.</p>
+        </li>
+        <li class="service-card waxing">
+          <div class="service-icon-wrapper">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3 class="service-title">Waxing</h3>
+          <p class="service-desc">Application of high-quality wax for protection and gloss.</p>
+        </li>
+        <li class="service-card coating">
+          <div class="service-icon-wrapper">
+            <i class="fas fa-shield-virus"></i>
+          </div>
+          <h3 class="service-title">Ceramic Coating</h3>
+          <p class="service-desc">Long-lasting protection and incredible shine for your vehicle's paint.</p>
+        </li>
+      </ul>
+    </section>
+    <section id="about">
+      <h2 class="section-title">About Us</h2>
+      <p class="about-text">
+        At Luxury Finish Auto Care, we specialize in professional, high-quality mobile car detailing based in Oakville and proudly serve all parts of the Greater Toronto Area (GTA). Whether you're at home, work, or anywhere in between, we come to you fully equipped and ready to deliver a luxury finish every time.<br><br>
+        Our mobile service means convenience without compromise. From deep interior steam cleaning and pet hair removal to full exterior hand washes and plastic restoration, our experienced team handles every vehicle with precision and care.<br><br>
+        We don't just clean cars we restore them to showroom condition. Trust Luxury Finish Auto Care to bring out the best in your vehicle, wherever you are.
+      </p>
+    </section>
+
+    <section id="team">
+      <h2 class="section-title">Our Detailing Specalists</h2>
+      <div class="team-list">
+        <div class="team-member">
+          <img src="ez.webp" alt="EZ" class="team-photo" />
+          <h3 class="team-name">Ezzaldeen Matab</h3>
+          <p class="team-role"></p>
+        </div>
+        <div class="team-member">
+          <img src="omar.webp" alt="Omar" class="team-photo" />
+          <h3 class="team-name">Omar Mzyan</h3>
+          <p class="team-role"></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="location">
+      <h2 class="section-title">Find Us</h2>
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps?q=Oakville,+Ontario&output=embed"
+          width="100%" height="320" style="border:0; border-radius: 12px;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 class="section-title">Book Your Service</h2>
+      
+      <div class="contact-flex">
+        <div class="contact-form-card">
+          <h3 class="contact-form-title">Request Appointment</h3>
+          <form class="contact-form" action="https://formsubmit.co/supremeshineauto12@gmail.com" method="POST">
+            <div class="form-row">
+              <input type="text" name="name" placeholder="Your full name" required>
+              <input type="tel" name="phone" placeholder="(647) 642-4706" pattern="\(\d{3}\) ?\d{3}-?\d{4}" maxlength="14" required>
+            </div>
+            <input type="email" name="email" placeholder="your.email@example.com">
+            <input type="text" name="vehicle" placeholder="e.g., 2020 BMW X5, Honda Civic, etc." required>
+            <select name="service" required>
+              <option value="">Select a service</option>
+              <option>Interior Detailing</option>
+              <option>Exterior Detailing</option>
+              <option>Engine Bay Cleaning</option>
+              <option>Headlight Restoration</option>
+              <option>Waxing</option>
+              <option>Ceramic Coating</option>
+            </select>
+            <input type="date" name="date" required>
+            <textarea name="details" placeholder="Any special requests or additional information..."></textarea>
+            <button type="submit" class="cta" style="width:100%;margin-top:12px;">Send Request</button>
+          </form>
+        </div>
+        <div class="contact-info-card">
+          <h3 class="contact-info-title">Get In Touch</h3>
+          <div class="contact-info-list">
+            <div class="contact-info-item"><i class="fas fa-phone"></i> <span>Call or Text <strong>647-642-4706</strong></span></div>
+            <div class="contact-info-item"><i class="fab fa-instagram"></i> <span>Follow Us <strong><a href="https://www.instagram.com/luxuryfinish.detailing/" target="_blank" rel="noopener">@luxuryfinish.detailing</a></strong></span></div>
+            <div class="contact-info-item"><i class="fas fa-map-marker-alt"></i> <span>Service Area <strong>Greater Toronto Area</strong></span></div>
+          </div>
+          <div class="why-book-box">
+            <h4>Why Book With Us?</h4>
+            <ul>
+              <li>100% Mobile - We come to you</li>
+              <li>Eco-friendly products</li>
+              <li>Professional equipment</li>
+              <li>Satisfaction guaranteed</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-links">
+      <a href="#services">Services</a> | 
+      <a href="#about">About</a> | 
+      <a href="#contact">Contact</a>
+    </div>
+    <p>&copy; 2025 Prestige Auto Care. All Rights Reserved.</p>
+  </footer>
+  <script>
+    // JSON data for navigation, business info, services, about, and footer
+    const siteData = {
+      navLinks: [
+        { name: "Home", href: "#" },
+        { name: "Services", href: "#services-section" },
+        { name: "About", href: "#about-section" },
+        { name: "Contact", href: "#contact-section" }
+      ],
+      business: {
+        title: "Luxury Finish Detailing",
+        tagline: "Mobile Auto Care",
+        cta: {
+          text: "Book Your Detailing",
+          href: "mailto:info@luxuryfinishdetailing.com"
+        },
+        info: [
+          "Professional mobile car detailing at your doorstep.",
+          "Serving your area with premium care and attention to detail.",
+          "<b>Call or text:</b> (555) 123-4567"
+        ]
+      },
+      services: [
+        {
+          title: "Exterior Detailing",
+          desc: "Thorough hand wash, wax, and polish for a showroom shine. Includes wheels, tires, and windows."
+        },
+        {
+          title: "Interior Detailing",
+          desc: "Deep cleaning of seats, carpets, mats, and all interior surfaces. Odor removal and fabric protection."
+        },
+        {
+          title: "Paint Protection",
+          desc: "Application of premium wax or ceramic coating to protect your car's finish from the elements."
+        },
+        {
+          title: "Headlight Restoration",
+          desc: "Restore clarity and brightness to foggy or yellowed headlights for improved safety and appearance."
+        },
+        {
+          title: "Engine Bay Cleaning",
+          desc: "Careful cleaning and dressing of the engine bay for a spotless look under the hood."
+        }
+      ],
+      about: "Luxury Finish Detailing is a mobile auto care service dedicated to providing top-tier detailing for your vehicle at your convenience. Our experienced team uses only the best products and techniques to ensure your car looks and feels brand new. We pride ourselves on attention to detail, reliability, and customer satisfaction.",
+      footerLinks: [
+        { name: "Privacy Policy", href: "#privacy" },
+        { name: "Terms of Service", href: "#terms" }
+      ]
+    };
+
+    // Render navigation
+    const navList = document.getElementById('nav-list');
+    siteData.navLinks.forEach(link => {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = link.href;
+      a.textContent = link.name;
+      if (window.location.hash === link.href) a.classList.add('active');
+      li.appendChild(a);
+      navList.appendChild(li);
+    });
+
+    // Render business info in hero
+    document.getElementById('business-title').textContent = siteData.business.title;
+    document.getElementById('business-tagline').textContent = siteData.business.tagline;
+    const ctaLink = document.getElementById('cta-link');
+    ctaLink.textContent = siteData.business.cta.text;
+    ctaLink.href = siteData.business.cta.href;
+
+    // Render services
+    const servicesList = document.getElementById('services-list');
+    siteData.services.forEach(service => {
+      const li = document.createElement('li');
+      li.className = 'service-card';
+      li.innerHTML = `<div class=\"service-title\">${service.title}</div><div class=\"service-desc\">${service.desc}</div>`;
+      servicesList.appendChild(li);
+    });
+
+    // Render about
+    document.getElementById('about-text').textContent = siteData.about;
+
+    // Render business info in contact
+    const infoDiv = document.getElementById('business-info');
+    infoDiv.innerHTML = siteData.business.info.map(line => `<p>${line}</p>`).join('');
+
+    // Render footer links
+    const footerLinksDiv = document.getElementById('footer-links');
+    siteData.footerLinks.forEach(link => {
+      const a = document.createElement('a');
+      a.href = link.href;
+      a.textContent = link.name;
+      footerLinksDiv.appendChild(a);
+    });
+
+    // Set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('nav ul li a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        if (this.hash && document.querySelector(this.hash)) {
+          e.preventDefault();
+          document.querySelector(this.hash).scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    const heroText = document.querySelector('.hero-text');
+    const sections = document.querySelectorAll('section');
+    const navLi = document.querySelectorAll('nav ul li a');
+
+    window.addEventListener('scroll', () => {
+      const scrollValue = window.scrollY;
+
+      // Hero background blur
+      const blurValue = Math.min(5, scrollValue / 100);
+      document.documentElement.style.setProperty('--scroll-blur', `${blurValue}px`);
+
+      // Hero text parallax and fade
+      if (heroText) {
+        const scrollOffset = scrollValue * 0.5;
+        const opacityValue = Math.max(0, 1 - scrollValue / 400);
+        heroText.style.transform = `translateY(${scrollOffset}px)`;
+        heroText.style.opacity = opacityValue;
+      }
+
+      // Nav link highlighting
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (scrollValue >= sectionTop - 75) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLi.forEach(a => {
+        a.classList.remove('active');
+        if (a.getAttribute('href') && a.getAttribute('href').substring(1) === current) {
+          a.classList.add('active');
+        }
+      });
+    });
+
+    // Force manual scroll restoration for Chrome
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    // Slow, smooth glide for all anchor links
+    function easeInOutQuad(t) {
+      return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (targetId.length > 1 && document.querySelector(targetId)) {
+          e.preventDefault();
+          const target = document.querySelector(targetId);
+          const startY = window.scrollY;
+          const endY = target.getBoundingClientRect().top + window.scrollY;
+          const distance = endY - startY;
+          const duration = 1800;
+          let startTime = null;
+          function animateScroll(currentTime) {
+            if (!startTime) startTime = currentTime;
+            const timeElapsed = currentTime - startTime;
+            const progress = Math.min(timeElapsed / duration, 1);
+            const ease = easeInOutQuad(progress);
+            window.scrollTo(0, startY + distance * ease);
+            if (timeElapsed < duration) {
+              requestAnimationFrame(animateScroll);
+            }
+          }
+          requestAnimationFrame(animateScroll);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
