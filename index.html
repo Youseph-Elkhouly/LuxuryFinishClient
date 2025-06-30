@@ -409,26 +409,32 @@
       }
       .hero-content {
         flex-direction: column;
-        gap: 20px;
-        text-align: center;
+        align-items: center !important;
+        text-align: center !important;
         padding: 0 16px;
       }
       .hero-text {
-        text-align: center;
+        align-items: center !important;
+        text-align: center !important;
+        width: 100%;
         padding: 0;
-        max-width: 100%;
+        margin: 0 auto;
       }
       .hero-title {
         font-size: 2rem;
         margin-bottom: 12px;
       }
       .hero-tagline {
-        font-size: 1.1rem;
-        margin-bottom: 20px;
+        text-align: center !important;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
       }
       .cta {
-        padding: 18px 40px;
-        font-size: 1.2rem;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
       }
       section {
         padding: 24px 16px;
@@ -451,43 +457,24 @@
         padding: 24px 20px;
       }
       .team-list {
-        gap: 24px;
-        margin-top: 24px;
+        justify-content: center !important;
+        gap: 20px !important;
       }
       .team-member {
-        width: 180px;
-        padding: 20px 16px 16px 16px;
-      }
-      .team-photo {
-        width: 120px;
-        height: 120px;
-      }
-      .contact-flex {
-        gap: 24px;
-        margin-top: 20px;
-      }
-      .contact-form-card, .contact-info-card {
-        flex: 1 1 100%;
-        min-width: auto;
-        max-width: 100%;
-        padding: 20px 16px 16px 16px;
-      }
-      .form-row {
+        margin: 0 auto !important;
+        display: flex;
         flex-direction: column;
-        gap: 14px;
+        align-items: center;
       }
-      .contact-form-title, .contact-info-title {
-        font-size: 1.2rem;
-        margin-bottom: 16px;
-      }
-      .contact-info-item {
-        font-size: 1rem;
-        margin-bottom: 12px;
+      .section-title {
+        text-align: center !important;
+        width: 100%;
       }
       .scroll-down-arrow {
-        width: 90px;
-        height: 36px;
-        font-size: 1.5rem;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        bottom: 60px !important;
+        position: absolute !important;
       }
     }
     @media (max-width: 500px) {
@@ -954,11 +941,11 @@
     </section>
 
     <section id="team">
-      <h2 class="section-title">Our Detailing Specalists</h2>
-      <div class="team-list">
+      <h2 class="section-title" style="text-align:center;">Our Detailing Specialists</h2>
+      <div class="team-list" style="justify-content:center;">
         <div class="team-member">
-          <img src="ez.webp" alt="EZ" class="team-photo" />
-          <h3 class="team-name">Ezzaldeen Matab</h3>
+          <img src="ez.webp" alt="Ezz Metab" class="team-photo" />
+          <h3 class="team-name">Ezz Metab</h3>
           <p class="team-role"></p>
         </div>
         <div class="team-member">
